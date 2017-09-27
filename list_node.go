@@ -1,5 +1,9 @@
 package main
 
+import (
+	"fmt"
+)
+
 type ListNode struct {
 	Data int
 	Next *ListNode
@@ -18,6 +22,11 @@ func ListLength(head *ListNode) int {
 
 func InsertInLinkedList(head **ListNode, data, position int) {
 	k := 1
+
+	if *head == nil {
+		fmt.Println("List Empty")
+		return
+	}
 
 	q := new(ListNode)
 
