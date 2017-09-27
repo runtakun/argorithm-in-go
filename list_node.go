@@ -8,10 +8,7 @@ type ListNode struct {
 func ListLength(head *ListNode) int {
 	current := head
 	count := 0
-	for {
-		if current == nil {
-			break
-		}
+	for current != nil {
 		count++
 		current = current.Next
 	}
@@ -32,10 +29,7 @@ func InsertInLinkedList(head **ListNode, data, position int) {
 		newNode.Next = p
 		*head = newNode
 	} else {
-		for {
-			if p == nil || k >= position {
-				break
-			}
+		for p != nil && k < position {
 			k++
 			q = p
 			p = p.Next
