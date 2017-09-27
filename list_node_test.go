@@ -80,3 +80,20 @@ func TestDeleteNodeFromLinkedList(t *testing.T) {
 		t.Errorf("node's data is wrong: got %v, want %v", actual, expected)
 	}
 }
+
+
+func TestDeleteinkedList(t *testing.T) {
+	node := generateTestNode()
+	DeleteLinkedList(&node)
+
+	actual := ListLength(node)
+	expected := 0
+	if actual != expected {
+		t.Errorf("length of node: got %v, want %v", actual, expected)
+	}
+
+	actual2 := node
+	if actual2 != nil {
+		t.Errorf("node is wrong: got %v, want %v", actual2, nil)
+	}
+}

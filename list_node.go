@@ -78,3 +78,18 @@ func DeleteNodeFromLinkedList(head **ListNode, position int) {
 		}
 	}
 }
+
+
+func DeleteLinkedList(head **ListNode) {
+	auxilaryNode := new(ListNode)
+
+	iterator := *head
+
+	for iterator != nil {
+		auxilaryNode = iterator.Next
+		iterator = nil
+		iterator = auxilaryNode
+	}
+
+	*head = nil
+}
