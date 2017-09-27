@@ -92,8 +92,7 @@ func TestDeleteinkedList(t *testing.T) {
 		t.Errorf("length of node: got %v, want %v", actual, expected)
 	}
 
-	actual2 := node
-	if actual2 != nil {
-		t.Errorf("node is wrong: got %v, want %v", actual2, nil)
+	if node != nil {
+		t.Errorf("node is wrong: got %v, want %v", node, nil)
 	}
 }
