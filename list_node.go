@@ -47,3 +47,34 @@ func InsertInLinkedList(head **ListNode, data, position int) {
 		newNode.Next = p
 	}
 }
+
+func DeleteNodeFromLinkedList(head **ListNode, position int) {
+	k := 1
+
+	if *head == nil {
+		fmt.Println("List Empty")
+		return
+	}
+
+	q := new(ListNode)
+
+	p := *head
+	if position == 1 {
+		*head = (*head).Next
+		p = nil
+		return
+	} else {
+		for p != nil && k < position {
+			k++
+			q = p
+			p = p.Next
+		}
+
+		if p == nil {
+			fmt.Println("Position does not exist.")
+		} else {
+			q.Next = p.Next
+			p = nil
+		}
+	}
+}

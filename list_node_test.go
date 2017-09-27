@@ -63,3 +63,20 @@ func TestInsertInLinkedList2(t *testing.T) {
 		t.Errorf("node's data is wrong: got %v, want %v", actual, expected)
 	}
 }
+
+func TestDeleteNodeFromLinkedList(t *testing.T) {
+	node := generateTestNode()
+	DeleteNodeFromLinkedList(&node, 3)
+
+	actual := ListLength(node)
+	expected := 4
+	if actual != expected {
+		t.Errorf("length of node: got %v, want %v", actual, expected)
+	}
+
+	actual = node.Next.Next.Next.Data
+	expected = 4
+	if actual != expected {
+		t.Errorf("node's data is wrong: got %v, want %v", actual, expected)
+	}
+}
