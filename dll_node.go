@@ -57,3 +57,37 @@ func DLLInsert(head **DLLNode, data, position int) {
 		temp.Next = newNode
 	}
 }
+
+func DLLDelete(head **DLLNode, position int) {
+	k := 1
+	if *head == nil {
+		fmt.Println("List is empty")
+		return
+	}
+
+	temp := *head
+	if position == 1 {
+		*head = (*head).Next
+		if *head != nil {
+			(*head).Prev = nil
+		}
+		temp = nil
+		return
+	}
+
+	for k < position && temp.Next != nil {
+		temp = temp.Next
+		k++
+	}
+
+	if k != position - 1 {
+		fmt.Println("Desired position does not exist")
+	}
+
+	temp2 := temp.Prev
+	temp2.Next = temp.Next
+	if temp.Next != nil {
+		temp.Next.Prev = temp2
+		temp = nil
+	}
+}

@@ -64,3 +64,50 @@ func TestDLLInsert2(t *testing.T) {
 		t.Errorf("got %v, want %v", actual, expected)
 	}
 }
+
+func TestDLLDelete1(t *testing.T) {
+	node := generateTestDLLNode()
+	DLLDelete(&node, 3)
+
+	actual := DLLLength(node)
+	expected := 4
+	if actual != expected {
+		t.Errorf("got %v, want %v", actual, expected)
+	}
+
+	actual = node.Next.Next.Data
+	expected = 4
+	if actual != expected {
+		t.Errorf("got %v, want %v", actual, expected)
+	}
+
+	actual = node.Next.Next.Next.Prev.Prev.Data
+	expected = 2
+	if actual != expected {
+		t.Errorf("got %v, want %v", actual, expected)
+	}
+}
+
+
+func TestDLLDelete2(t *testing.T) {
+	node := generateTestDLLNode()
+	DLLDelete(&node, 1)
+
+	actual := DLLLength(node)
+	expected := 4
+	if actual != expected {
+		t.Errorf("got %v, want %v", actual, expected)
+	}
+
+	actual = node.Data
+	expected = 2
+	if actual != expected {
+		t.Errorf("got %v, want %v", actual, expected)
+	}
+
+	actual = node.Next.Next.Next.Prev.Prev.Data
+	expected = 3
+	if actual != expected {
+		t.Errorf("got %v, want %v", actual, expected)
+	}
+}
