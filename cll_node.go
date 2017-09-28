@@ -103,3 +103,20 @@ func DeleteLastNodeFromCLL(head **CLLNode) {
 	temp.Next = current.Next
 	current = nil
 }
+
+
+func DeleteFrontNodeFromCLL(head **CLLNode) {
+	current := *head
+
+	if *head == nil {
+		fmt.Println("List Empty")
+		return
+	}
+
+	for current.Next != *head {
+		current = current.Next
+	}
+
+	current.Next = (*head).Next
+	*head = (*head).Next
+}

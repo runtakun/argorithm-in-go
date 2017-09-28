@@ -81,7 +81,6 @@ func TestInsertAtBeginInCLL(t *testing.T) {
 	}
 }
 
-
 func TestDeleteLastNodeFromCLL(t *testing.T) {
 	node := generateTestCLLNode()
 	DeleteLastNodeFromCLL(&node)
@@ -100,6 +99,29 @@ func TestDeleteLastNodeFromCLL(t *testing.T) {
 
 	actual = node.Next.Next.Next.Next.Data
 	expected = 1
+	if actual != expected {
+		t.Errorf("got %v, want %v", actual, expected)
+	}
+}
+
+func TestDeleteFrontNodeFromCLL(t *testing.T) {
+	node := generateTestCLLNode()
+	DeleteFrontNodeFromCLL(&node)
+	
+	actual := CircularListLength(node)
+	expected := 4
+	if actual != expected {
+		t.Errorf("got %v, want %v", actual, expected)
+	}	
+
+	actual = node.Data
+	expected = 2
+	if actual != expected {
+		t.Errorf("got %v, want %v", actual, expected)
+	}
+
+	actual = node.Next.Next.Next.Next.Data
+	expected = 2
 	if actual != expected {
 		t.Errorf("got %v, want %v", actual, expected)
 	}
