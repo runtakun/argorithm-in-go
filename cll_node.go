@@ -85,3 +85,21 @@ func InsertAtBeginInCLL(head **CLLNode, data int) {
 		*head = newNode
 	}
 }
+
+func DeleteLastNodeFromCLL(head **CLLNode) {
+	temp := *head
+	current := *head
+
+	if *head == nil {
+		fmt.Println("List Empty")
+		return
+	}
+
+	for current.Next != *head {
+		temp = current
+		current = current.Next
+	}
+
+	temp.Next = current.Next
+	current = nil
+}
