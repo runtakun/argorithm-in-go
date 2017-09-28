@@ -65,3 +65,23 @@ func InsertAtEndInCLL(head **CLLNode, data int) {
 		current.Next = newNode
 	}
 }
+
+func InsertAtBeginInCLL(head **CLLNode, data int) {
+	current := *head
+
+	newNode := new(CLLNode)
+	newNode.Data = data
+
+	for current.Next != *head {
+		current = current.Next
+	}
+	newNode.Next = newNode
+
+	if *head == nil {
+		*head = newNode
+	} else {
+		newNode.Next = *head
+		current.Next = newNode
+		*head = newNode
+	}
+}

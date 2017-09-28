@@ -56,3 +56,27 @@ func TestInsertAtEndInCLL(t *testing.T) {
 		t.Errorf("got %v, want %v", actual, expected)
 	}
 }
+
+
+func TestInsertAtBeginInCLL(t *testing.T) {
+	node := generateTestCLLNode()
+	InsertAtBeginInCLL(&node, 0)
+	
+	actual := CircularListLength(node)
+	expected := 6
+	if actual != expected {
+		t.Errorf("got %v, want %v", actual, expected)
+	}	
+
+	actual = node.Data
+	expected = 0
+	if actual != expected {
+		t.Errorf("got %v, want %v", actual, expected)
+	}
+
+	actual = node.Next.Next.Next.Next.Next.Next.Data
+	expected = 0
+	if actual != expected {
+		t.Errorf("got %v, want %v", actual, expected)
+	}
+}
