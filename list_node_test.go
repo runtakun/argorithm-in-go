@@ -2,10 +2,9 @@ package main
 
 import (
 	"testing"
-	// "fmt"
 )
 
-func generateTestNode() *ListNode {
+func generateTestListNode() *ListNode {
 	node5 := &ListNode{4, nil}
 	node4 := &ListNode{3, node5}
 	node3 := &ListNode{2, node4}
@@ -15,7 +14,7 @@ func generateTestNode() *ListNode {
 }
 
 func TestListLength(t *testing.T) {
-	node := generateTestNode()
+	node := generateTestListNode()
 	actual := ListLength(node)
 	expected := 5
 	if actual != expected {
@@ -25,7 +24,7 @@ func TestListLength(t *testing.T) {
 
 
 func TestInsertInLinkedList1(t *testing.T) {
-	node := generateTestNode()
+	node := generateTestListNode()
 	InsertInLinkedList(&node, -1, 1)
 
 	actual := ListLength(node)
@@ -48,7 +47,7 @@ func TestInsertInLinkedList1(t *testing.T) {
 }
 
 func TestInsertInLinkedList2(t *testing.T) {
-	node := generateTestNode()
+	node := generateTestListNode()
 	InsertInLinkedList(&node, 10, 3)
 
 	actual := ListLength(node)
@@ -65,7 +64,7 @@ func TestInsertInLinkedList2(t *testing.T) {
 }
 
 func TestDeleteNodeFromLinkedList(t *testing.T) {
-	node := generateTestNode()
+	node := generateTestListNode()
 	DeleteNodeFromLinkedList(&node, 3)
 
 	actual := ListLength(node)
@@ -83,7 +82,7 @@ func TestDeleteNodeFromLinkedList(t *testing.T) {
 
 
 func TestDeleteinkedList(t *testing.T) {
-	node := generateTestNode()
+	node := generateTestListNode()
 	DeleteLinkedList(&node)
 
 	actual := ListLength(node)
