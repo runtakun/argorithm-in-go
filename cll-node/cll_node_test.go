@@ -1,5 +1,4 @@
-package main
-
+package cll_node
 
 import (
 	"testing"

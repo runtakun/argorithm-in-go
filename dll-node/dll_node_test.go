@@ -1,4 +1,4 @@
-package main
+package dll_node
 
 import (
 	"testing"
